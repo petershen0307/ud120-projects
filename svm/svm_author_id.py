@@ -27,20 +27,28 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 from sklearn.svm import SVC
 
-clf = SVC(kernel='linear')
-train_start_time = time()
+def quiz_execute(clf, features_train, labels_train, features_test, labels_test):
+    train_start_time = time()
 
-features_train = features_train[:len(features_train)//100]
-labels_train = labels_train[:len(labels_train)//100]
+    features_train = features_train[:len(features_train)//100]
+    labels_train = labels_train[:len(labels_train)//100]
 
-clf.fit(features_train, labels_train)
-train_end_time = time()
-print("time elapsed by training:", round(train_end_time - train_start_time, 3), "(s)")
-train_start_time = time()
-print(clf.predict(features_test))
-train_end_time = time()
-print("time elapsed by predict:", round(train_end_time - train_start_time, 3), "(s)")
-print('predict score:', clf.score(features_test, labels_test))
+    clf.fit(features_train, labels_train)
+    train_end_time = time()
+    print("time elapsed by training:", round(train_end_time - train_start_time, 3), "(s)")
+    train_start_time = time()
+    clf.predict(features_test)
+    train_end_time = time()
+    print("time elapsed by predict:", round(train_end_time - train_start_time, 3), "(s)")
+    print('predict score:', clf.score(features_test, labels_test))
+
+cs = [10.0, 100.0, 1000.0, 10000.0]
+for c in cs:
+    print('c is ', c)
+    clf = SVC(kernel='rbf', C=c)
+    quiz_execute(clf, features_train, labels_train, features_test, labels_test)
+    print('\n')
+
 #########################################################
 
 
