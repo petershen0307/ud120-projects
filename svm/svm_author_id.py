@@ -29,6 +29,10 @@ from sklearn.svm import SVC
 
 clf = SVC(kernel='linear')
 train_start_time = time()
+
+features_train = features_train[:len(features_train)//100]
+labels_train = labels_train[:len(labels_train)//100]
+
 clf.fit(features_train, labels_train)
 train_end_time = time()
 print("time elapsed by training:", round(train_end_time - train_start_time, 3), "(s)")
