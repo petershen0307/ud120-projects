@@ -29,7 +29,7 @@ from sklearn import tree
 clf = tree.DecisionTreeClassifier(min_samples_split=40)
 clf.fit(features_train, labels_train)
 accuracy = clf.score(features_test, labels_test)
-print("accuracy {}".format(accuracy))
+print("1% of your available features accuracy {}".format(accuracy))
 
 #########################################################
 
