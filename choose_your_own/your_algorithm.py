@@ -28,17 +28,30 @@ plt.show()
 ################################################################################
 
 
-### your code here!  name your classifier object clf if you want the 
+### your code here!  name your classifier object clf if you want the
 ### visualization code (prettyPicture) to show you the decision boundary
 
+def getADABoost():
+    from sklearn import ensemble
+    clf = ensemble.AdaBoostClassifier()
+    clf.fit(features_train, labels_train)
+    return clf
 
+def getDecisionTree():
+    from sklearn import tree
+    clf = tree.DecisionTreeClassifier(min_samples_split=40)
+    clf.fit(features_train, labels_train)
+    return clf
 
-
-
-
-
+clfMap = {
+    "adaBoost": getADABoost,
+    "decisionTree": getDecisionTree
+}
 
 try:
-    prettyPicture(clf, features_test, labels_test)
-except NameError:
-    pass
+    for k, v in clfMap.items():
+        clf = v()
+        print("{} accuracy: {}".format(k, clf.score(features_test, labels_test)))
+        prettyPicture(clf, features_test, labels_test, k)
+except NameError as e:
+    print(e)
