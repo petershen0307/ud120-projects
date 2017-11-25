@@ -24,7 +24,7 @@ plt.scatter(grade_slow, bumpy_slow, color = "r", label="slow")
 plt.legend()
 plt.xlabel("bumpiness")
 plt.ylabel("grade")
-plt.show()
+# plt.show()
 ################################################################################
 
 
@@ -33,7 +33,7 @@ plt.show()
 
 def getADABoost():
     from sklearn import ensemble
-    clf = ensemble.AdaBoostClassifier()
+    clf = ensemble.AdaBoostClassifier(n_estimators=50, learning_rate=1, random_state=1)
     clf.fit(features_train, labels_train)
     return clf
 
@@ -45,7 +45,7 @@ def getDecisionTree():
 
 clfMap = {
     "adaBoost": getADABoost,
-    "decisionTree": getDecisionTree
+    # "decisionTree": getDecisionTree
 }
 
 try:
