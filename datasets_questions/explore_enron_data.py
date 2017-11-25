@@ -20,3 +20,6 @@ import pickle
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "rb"))
 
 print("how many data points (ex: people) are in enron dataset: {}".format(len(enron_data)))
+print(enron_data.keys())
+print(enron_data['METTS MARK'])
+print("how many features are available? {}".format(len(enron_data['METTS MARK'])))
