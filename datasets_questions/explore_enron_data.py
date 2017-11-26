@@ -76,10 +76,21 @@ print("What’s the value of stock options exercised by Jeffrey K Skilling? \
 
 # quiz 25 follow the money "total_payments"
 keyName = findKeyInEnronData(enron_data, "Skilling Jeffrey")
-print(keyName, enron_data[keyName])
+# print(keyName, enron_data[keyName])
 
 keyName = findKeyInEnronData(enron_data, "Lay Kenneth")
-print(keyName, enron_data[keyName])
+# print(keyName, enron_data[keyName])
 
 keyName = findKeyInEnronData(enron_data, "Fastow Andrew")
-print(keyName, enron_data[keyName])
+# print(keyName, enron_data[keyName])
+
+# quiz 27 Dealing with Unfilled Features
+qualifySalary = 0
+knownEmail = 0
+for _, v in enron_data.items():
+    if str(v["salary"]).upper() != "NaN".upper():
+        qualifySalary += 1
+    if v["email_address"].upper() != "NaN".upper():
+        knownEmail += 1
+print("qualify salary: {}".format(qualifySalary))
+print("known email: {}".format(knownEmail))
