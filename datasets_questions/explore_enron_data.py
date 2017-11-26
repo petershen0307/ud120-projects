@@ -45,13 +45,24 @@ print("How many POIs are there in the E+F dataset? {}".format(poiCount))
 #         else:
 #             print(line)
 # print("How Many POIs Exist? {}".format(nameListWithPOI))
-nameJamesPrentice = "Prentice James"
-keyJamesPrentice = ""
+name = "Prentice James"
+keyName = ""
 allEnronName = enron_data.keys()
 for enronName in allEnronName:
-    if nameJamesPrentice.upper() in enronName.upper():
-        keyJamesPrentice = enronName
-# print(keyJamesPrentice)
-totalStockOfJamesPrentice = enron_data[keyJamesPrentice]["exercised_stock_options"] + enron_data[keyJamesPrentice]["restricted_stock"]
+    if name.upper() in enronName.upper():
+        keyName = enronName
+# print(keyName)
+totalStockOfJamesPrentice = enron_data[keyName]["exercised_stock_options"] + enron_data[keyName]["restricted_stock"]
 print("What is the total value of the stock belonging to James Prentice? \
 {}".format(totalStockOfJamesPrentice))
+
+name = "Colwell Wesley"
+allEnronName = enron_data.keys()
+for enronName in allEnronName:
+    if name.upper() in enronName.upper():
+        keyName = enronName
+# for k, v in enron_data[keyName].items():
+#     print("{}: {}".format(k, v))
+# len([x for x in enron_data[keyName].values() if x != 'NaN'])
+print("How many email messages do we have from Wesley Colwell to persons of interest? \
+{}".format(enron_data[keyName]["from_this_person_to_poi"]))
