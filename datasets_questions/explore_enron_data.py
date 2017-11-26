@@ -47,6 +47,7 @@ print("How many POIs are there in the E+F dataset? {}".format(poiCount))
 # print("How Many POIs Exist? {}".format(nameListWithPOI))
 
 def findKeyInEnronData(enronData, name):
+    keyName = None
     for enronName in enronData.keys():
         if name.upper() in enronName.upper():
             keyName = enronName
@@ -56,9 +57,9 @@ def findKeyInEnronData(enronData, name):
 name = "Prentice James"
 keyName = findKeyInEnronData(enron_data, name)
 # print(keyName)
-totalStockOfJamesPrentice = enron_data[keyName]["exercised_stock_options"] + enron_data[keyName]["restricted_stock"]
+# totalStockOfJamesPrentice = enron_data[keyName]["exercised_stock_options"] + enron_data[keyName]["restricted_stock"]
 print("What is the total value of the stock belonging to James Prentice? \
-{}".format(totalStockOfJamesPrentice))
+{}".format(enron_data[keyName]["total_stock_value"]))
 
 name = "Colwell Wesley"
 keyName = findKeyInEnronData(enron_data, name)
@@ -67,3 +68,8 @@ keyName = findKeyInEnronData(enron_data, name)
 # len([x for x in enron_data[keyName].values() if x != 'NaN'])
 print("How many email messages do we have from Wesley Colwell to persons of interest? \
 {}".format(enron_data[keyName]["from_this_person_to_poi"]))
+
+keyName = findKeyInEnronData(enron_data, "Skilling Jeffrey K")
+# print(keyName)
+print("What’s the value of stock options exercised by Jeffrey K Skilling? \
+{}".format(enron_data[keyName]["exercised_stock_options"]))
