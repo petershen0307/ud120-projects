@@ -94,3 +94,13 @@ for _, v in enron_data.items():
         knownEmail += 1
 print("qualify salary: {}".format(qualifySalary))
 print("known email: {}".format(knownEmail))
+
+# quiz 29 How many people in the E+F dataset (as it currently exists) have “NaN” for their total payments? What percentage of people in the dataset as a whole is this?
+
+import sys
+sys.path.append("../tools/")
+from feature_format import featureFormat
+
+featureList = featureFormat(enron_data, ["total_payments"])
+print("total payments without NaN {}".format(len(featureList)))
+print("percentage of without NaN: {}".format(len(featureList)/len(enron_data)))
