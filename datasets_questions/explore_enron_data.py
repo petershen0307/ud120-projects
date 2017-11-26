@@ -73,3 +73,13 @@ keyName = findKeyInEnronData(enron_data, "Skilling Jeffrey K")
 # print(keyName)
 print("What’s the value of stock options exercised by Jeffrey K Skilling? \
 {}".format(enron_data[keyName]["exercised_stock_options"]))
+
+# quiz 25 follow the money "total_payments"
+keyName = findKeyInEnronData(enron_data, "Skilling Jeffrey")
+print(keyName, enron_data[keyName])
+
+keyName = findKeyInEnronData(enron_data, "Lay Kenneth")
+print(keyName, enron_data[keyName])
+
+keyName = findKeyInEnronData(enron_data, "Fastow Andrew")
+print(keyName, enron_data[keyName])
