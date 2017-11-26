@@ -45,3 +45,13 @@ print("How many POIs are there in the E+F dataset? {}".format(poiCount))
 #         else:
 #             print(line)
 # print("How Many POIs Exist? {}".format(nameListWithPOI))
+nameJamesPrentice = "Prentice James"
+keyJamesPrentice = ""
+allEnronName = enron_data.keys()
+for enronName in allEnronName:
+    if nameJamesPrentice.upper() in enronName.upper():
+        keyJamesPrentice = enronName
+# print(keyJamesPrentice)
+totalStockOfJamesPrentice = enron_data[keyJamesPrentice]["exercised_stock_options"] + enron_data[keyJamesPrentice]["restricted_stock"]
+print("What is the total value of the stock belonging to James Prentice? \
+{}".format(totalStockOfJamesPrentice))
