@@ -21,8 +21,8 @@ enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "rb"
 
 print("how many data points (ex: people) are in enron dataset: {}".format(len(enron_data)))
 # print(enron_data.keys())
-# print(enron_data['METTS MARK'])
-print("how many features are available? {}".format(len(enron_data['METTS MARK'])))
+# print(next (iter (enron_data.values())))
+print("how many features are available? {}".format(len(next (iter (enron_data.values())))))
 
 poiCount = 0
 for person, info in enron_data.items():
