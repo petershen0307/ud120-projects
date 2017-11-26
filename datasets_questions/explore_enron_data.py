@@ -29,3 +29,19 @@ for person, info in enron_data.items():
     if info["poi"]:
         poiCount += 1
 print("How many POIs are there in the E+F dataset? {}".format(poiCount))
+# miss understand the quesion quiz 16
+# allEnronName = enron_data.keys()
+# import re
+# nameListWithPOI = 0
+# with open("../final_project/poi_names.txt", "r") as f:
+#     for line in f:
+#         match = re.findall("[^\\((y|n)\\) ]{1}[a-zA-Z, ]+", line)
+#         if match != []:
+#             name = match[0].replace(",", "")
+#             print(name)
+#             for enronName in allEnronName:
+#                 if name.upper() in enronName.upper():
+#                     nameListWithPOI += 1
+#         else:
+#             print(line)
+# print("How Many POIs Exist? {}".format(nameListWithPOI))
