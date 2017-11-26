@@ -45,22 +45,23 @@ print("How many POIs are there in the E+F dataset? {}".format(poiCount))
 #         else:
 #             print(line)
 # print("How Many POIs Exist? {}".format(nameListWithPOI))
+
+def findKeyInEnronData(enronData, name):
+    for enronName in enronData.keys():
+        if name.upper() in enronName.upper():
+            keyName = enronName
+            break
+    return keyName
+
 name = "Prentice James"
-keyName = ""
-allEnronName = enron_data.keys()
-for enronName in allEnronName:
-    if name.upper() in enronName.upper():
-        keyName = enronName
+keyName = findKeyInEnronData(enron_data, name)
 # print(keyName)
 totalStockOfJamesPrentice = enron_data[keyName]["exercised_stock_options"] + enron_data[keyName]["restricted_stock"]
 print("What is the total value of the stock belonging to James Prentice? \
 {}".format(totalStockOfJamesPrentice))
 
 name = "Colwell Wesley"
-allEnronName = enron_data.keys()
-for enronName in allEnronName:
-    if name.upper() in enronName.upper():
-        keyName = enronName
+keyName = findKeyInEnronData(enron_data, name)
 # for k, v in enron_data[keyName].items():
 #     print("{}: {}".format(k, v))
 # len([x for x in enron_data[keyName].values() if x != 'NaN'])
