@@ -104,3 +104,11 @@ from feature_format import featureFormat
 featureList = featureFormat(enron_data, ["total_payments"])
 print("total payments without NaN {}".format(len(featureList)))
 print("percentage of without NaN: {}".format(len(featureList)/len(enron_data)))
+
+featureList = featureFormat(enron_data, ["total_payments", "poi"])
+countPOIWithoutNaNTotalPay = 0
+for ele in featureList:
+    if ele[1] == 1:
+        countPOIWithoutNaNTotalPay += 1
+print("total payments of POI without NaN {}".format(countPOIWithoutNaNTotalPay))
+print("percentage of POI without NaN: {}".format(countPOIWithoutNaNTotalPay/poiCount))
