@@ -21,7 +21,7 @@ dictionary = pickle.load( open("../final_project/final_project_dataset_modified.
 
 ### list the features you want to look at--first item in the
 ### list will be the "target" feature
-features_list = ["bonus", 'long_term_incentive']#["bonus", "salary"]
+features_list = ["bonus", "salary"]#["bonus", 'long_term_incentive']
 sort_keys = '../tools/python2_lesson06_keys.pkl'
 data = featureFormat( dictionary, features_list, remove_any_zeroes=True, sort_keys=sort_keys)
 target, features = targetFeatureSplit( data )
@@ -32,7 +32,9 @@ feature_train, feature_test, target_train, target_test = train_test_split(featur
 train_color = "b"
 test_color = "r"
 
-
+# quiz 46 switch train and test
+feature_test, feature_train = feature_train, feature_test
+target_test, target_train = target_train, target_test
 
 ### Your regression goes here!
 ### Please name it reg, so that the plotting code below picks it up and
@@ -48,8 +50,8 @@ print('slope:', reg.coef_)
 print('intercept:', reg.intercept_)
 #print('quiz 42 score:', reg.score(feature_train, target_train))
 #print('quiz 43 test data score:', reg.score(feature_test, target_test))
-print('quiz 44 test data regress with [bonus, long_term_incentive] score:',\
-reg.score(feature_test, target_test))
+#print('quiz 44 test data regress with [bonus, long_term_incentive] score:',\
+#reg.score(feature_test, target_test))
 
 
 
