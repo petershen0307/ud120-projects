@@ -46,6 +46,7 @@ reg = linear_model.LinearRegression()
 reg.fit(feature_train, target_train)
 print('slope:', reg.coef_)
 print('intercept:', reg.intercept_)
+print('quiz 42 score:', reg.score(feature_train, target_train))
 
 
 
