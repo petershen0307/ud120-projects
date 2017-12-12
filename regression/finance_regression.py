@@ -21,7 +21,7 @@ dictionary = pickle.load( open("../final_project/final_project_dataset_modified.
 
 ### list the features you want to look at--first item in the
 ### list will be the "target" feature
-features_list = ["bonus", "salary"]
+features_list = ["bonus", 'long_term_incentive']#["bonus", "salary"]
 sort_keys = '../tools/python2_lesson06_keys.pkl'
 data = featureFormat( dictionary, features_list, remove_any_zeroes=True, sort_keys=sort_keys)
 target, features = targetFeatureSplit( data )
@@ -46,9 +46,10 @@ reg = linear_model.LinearRegression()
 reg.fit(feature_train, target_train)
 print('slope:', reg.coef_)
 print('intercept:', reg.intercept_)
-print('quiz 42 score:', reg.score(feature_train, target_train))
-print('quiz 43 test data score:', reg.score(feature_test, target_test))
-
+#print('quiz 42 score:', reg.score(feature_train, target_train))
+#print('quiz 43 test data score:', reg.score(feature_test, target_test))
+print('quiz 44 test data regress with [bonus, long_term_incentive] score:',\
+reg.score(feature_test, target_test))
 
 
 
