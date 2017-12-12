@@ -44,7 +44,8 @@ reg = linear_model.LinearRegression()
 # print('salary', features)
 # print('bonus', target)
 reg.fit(feature_train, target_train)
-
+print('slope:', reg.coef_)
+print('intercept:', reg.intercept_)
 
 
 
