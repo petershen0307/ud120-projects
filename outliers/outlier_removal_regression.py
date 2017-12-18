@@ -84,7 +84,8 @@ if len(cleaned_data) > 0:
     plt.show()
     # quiz 12 6.36859481
     print(reg.coef_)
-
+    # quiz 13 0.983189455396
+    print(reg.score(ages_test, net_worths_test))
 
 else:
     print("outlierCleaner() is returning an empty list, no refitting to be done")
