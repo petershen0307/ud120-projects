@@ -44,7 +44,10 @@ except NameError:
     pass
 plt.scatter(ages, net_worths)
 plt.show()
+# quiz 10 5.07793064
 print(reg.coef_)
+# quiz 11 0.878262470366
+print(reg.score(ages_test, net_worths_test))
 
 
 ### identify and remove the most outlier-y points
