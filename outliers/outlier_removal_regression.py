@@ -82,6 +82,7 @@ if len(cleaned_data) > 0:
     plt.xlabel("ages")
     plt.ylabel("net worths")
     plt.show()
+    # quiz 12 6.36859481
     print(reg.coef_)
 
 
