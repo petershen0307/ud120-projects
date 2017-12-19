@@ -28,4 +28,10 @@ def drawScatterPlot(data):
 for k, v in data_dict.items():
     if (v['salary'] == 26704229):
         print(k, v['salary'])
+# quiz 18
+    try:
+        if (int(v['salary']) >= 1000000) and (int(v['bonus']) >= 5000000):
+            print(k, v['salary'], v['bonus'])
+    except ValueError:
+        pass
 drawScatterPlot(data)
