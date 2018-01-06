@@ -49,6 +49,7 @@ data_dict.pop("TOTAL", 0)
 feature_1 = "salary"
 feature_2 = "exercised_stock_options"
 feature_3 = "total_payments"
+feature_4 = "from_messages"
 feature_poi  = "poi"
 features_list = [feature_poi, feature_1, feature_2]
 data = featureFormat(data_dict, features_list )
@@ -104,7 +105,22 @@ def l9Q24():
     print("l10Q16 scale value (200000, 1000000):", scaler.transform([[200000, 1000000]]))
     return KMeans(n_clusters=2).fit_predict(finance_features), "clusters_L9Q24.pdf", finance_features
 
-pred, outputName, finance_features = l9Q24()
+def l10Q17():
+    features_list = [feature_poi, feature_1, feature_4]
+    data = featureFormat(data_dict, features_list )
+    poi, finance_features = targetFeatureSplit( data )
+    for f1, f4 in finance_features:
+        plt.scatter( f1, f4 )
+    plt.show()
+    # fe = [e for _, e in finance_features]
+    # fs = [s for s, _ in finance_features]
+    # newFeatures = []
+    # scaler = MinMaxScaler()
+    # scaler.fit(finance_features)
+    # finance_features = scaler.transform(finance_features)
+    # return KMeans(n_clusters=2).fit_predict(finance_features), "clusters_L10Q17.pdf", finance_features
+l10Q17()
+# pred, outputName, finance_features = l9Q24()
 
 ### rename the "name" parameter when you change the number of features
 ### so that the figure gets saved to a different file
