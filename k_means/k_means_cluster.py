@@ -101,6 +101,7 @@ def l9Q24():
     scaler = MinMaxScaler()
     scaler.fit(finance_features)
     finance_features = scaler.transform(finance_features)
+    print("l10Q16 scale value (200000, 1000000):", scaler.transform([[200000, 1000000]]))
     return KMeans(n_clusters=2).fit_predict(finance_features), "clusters_L9Q24.pdf", finance_features
 
 pred, outputName, finance_features = l9Q24()
