@@ -65,9 +65,15 @@ plt.show()
 
 def l9Q22():
     f = [e for _, e in finance_features if e != 0]
-    print("l9Q22", feature_2, " maximum:", max(f))
-    print("l9Q22", feature_2, " minimum:", min(f))
+    print("l9Q22 ", feature_2, " maximum:", max(f))
+    print("l9Q22 ", feature_2, " minimum:", min(f))
 l9Q22()
+
+def l9Q23():
+    f = [s for s, _ in finance_features if s != 0]
+    print("l9Q23 ", feature_1, " maximum:", max(f))
+    print("l9Q23 ", feature_1, " minimum:", min(f))
+l9Q23()
 
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
