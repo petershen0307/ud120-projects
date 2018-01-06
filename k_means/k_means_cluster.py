@@ -89,7 +89,21 @@ def l9Q21():
     data = featureFormat(data_dict, features_list )
     poi, finance_features = targetFeatureSplit( data )
     return KMeans(n_clusters=3).fit_predict(finance_features), "clusters_L9Q21.pdf", finance_features
-pred, outputName, finance_features = l9Q21()
+
+from sklearn.preprocessing import MinMaxScaler
+def l9Q24():
+    features_list = [feature_poi, feature_1, feature_2]
+    data = featureFormat(data_dict, features_list )
+    poi, finance_features = targetFeatureSplit( data )
+    fe = [e for _, e in finance_features]
+    fs = [s for s, _ in finance_features]
+    newFeatures = []
+    scaler = MinMaxScaler()
+    scaler.fit(finance_features)
+    finance_features = scaler.transform(finance_features)
+    return KMeans(n_clusters=2).fit_predict(finance_features), "clusters_L9Q24.pdf", finance_features
+
+pred, outputName, finance_features = l9Q24()
 
 ### rename the "name" parameter when you change the number of features
 ### so that the figure gets saved to a different file
