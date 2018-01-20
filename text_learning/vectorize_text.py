@@ -44,7 +44,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
         temp_counter += 1
         #if temp_counter < 200:
         path = os.path.join('..', path[:-1])
-        print(path)
+        #print(path)
         email = open(path, "r")
 
         ### use parseOutText to extract the text from the opened email
@@ -53,7 +53,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
         ### ["sara", "shackleton", "chris", "germani"]
         for w in ["sara", "shackleton", "chris", "germani"]:
             extractText = extractText.replace(w, "")
-        extractText = extractText.replace("\n", " ")
+        extractText = extractText.replace("\n\n", " ")
         ### append the text to word_data
         word_data.append(extractText)
 
@@ -80,7 +80,7 @@ print("quiz 19, word_data[152]:",word_data[152])
 from sklearn.feature_extraction.text import TfidfVectorizer
 vectorizer = TfidfVectorizer(stop_words="english")
 vectorizer.fit_transform(word_data)
-vectorizer.transform(word_data)
+#vectorizer.transform(word_data)
 vectorizer_count = vectorizer.get_feature_names()
 print(len(vectorizer_count))
 print(vectorizer_count[34596])
