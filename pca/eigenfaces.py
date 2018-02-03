@@ -80,6 +80,7 @@ t0 = time()
 X_train_pca = pca.transform(X_train)
 X_test_pca = pca.transform(X_test)
 print("done in {:0.3f}s".format(time() - t0))
+print("Quiz 34 variance 1:", pca.explained_variance_ratio_[0], ", variance 2:", pca.explained_variance_ratio_[1])
 
 
 ###############################################################################
