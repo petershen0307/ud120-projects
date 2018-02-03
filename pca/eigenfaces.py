@@ -28,7 +28,7 @@ from sklearn.datasets import fetch_lfw_people
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-from sklearn.decomposition import RandomizedPCA
+from sklearn.decomposition import PCA
 from sklearn.svm import SVC
 
 # Display progress logs on stdout
@@ -70,7 +70,7 @@ n_components = 150
 
 print("Extracting the top {} eigenfaces from {} faces".format(n_components, X_train.shape[0]))
 t0 = time()
-pca = RandomizedPCA(n_components=n_components, whiten=True).fit(X_train)
+pca = PCA(svd_solver='randomized', n_components=n_components, whiten=True).fit(X_train)
 print("done in {:0.3f}s".format(time() - t0))
 
 eigenfaces = pca.components_.reshape((n_components, h, w))
