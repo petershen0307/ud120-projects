@@ -22,7 +22,7 @@ data_dict = pickle.load(open("../final_project/final_project_dataset.pkl", "rb")
 ### have a different feature list when you do the final project.
 features_list = ["poi", "salary"]
 
-data = featureFormat(data_dict, features_list, sort_keys='../tools/python2_lesson13_keys.pkl')
+data = featureFormat(data_dict, features_list, sort_keys='../tools/python2_lesson14_keys.pkl')
 labels, features = targetFeatureSplit(data)
 
 
@@ -35,3 +35,9 @@ from sklearn.tree import DecisionTreeClassifier
 clf = DecisionTreeClassifier()
 clf.fit(f_train, l_train)
 print(clf.score(f_test, l_test))
+print(l_test)
+poiCount = 0
+for l in l_test:
+    if l == 1:
+        poiCount += 1
+print("How many POI in test set:", poiCount)
