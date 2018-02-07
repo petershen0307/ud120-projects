@@ -41,3 +41,4 @@ for l in l_test:
     if l == 1:
         poiCount += 1
 print("How many POI in test set:", poiCount)
+print("people in the test:", len(l_test))
